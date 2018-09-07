@@ -14,6 +14,6 @@
          </font>
       </Label>
       <TextField fx:id="username" layoutX="34.0" layoutY="95.0" prefHeight="25.0" prefWidth="195.0" promptText="Enter your name.." />
-      <Button fx:id="start" layoutX="242.0" layoutY="95.0" mnemonicParsing="false" onAction="#startGame" prefHeight="25.0" prefWidth="60.0" text="Start" />
+      <Button defaultButton="true" fx:id="start" layoutX="242.0" layoutY="95.0" mnemonicParsing="false" onAction="#startGame" prefHeight="25.0" prefWidth="60.0" text="Start" />
    </children>
 </AnchorPane>

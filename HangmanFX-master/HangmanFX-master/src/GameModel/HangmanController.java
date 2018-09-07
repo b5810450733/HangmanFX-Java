@@ -91,6 +91,7 @@ public class HangmanController {
             }
             countTowin++;
             showtext.setText(showWord);
+            status.setStyle("-fx-text-fill: green");
             status.setText("Correct");
             if (countTowin == 6 || winword.equals(wordTouse)){
                 status.setText("!!You WIN!!");
@@ -100,6 +101,7 @@ public class HangmanController {
             }
         }if (isTrue == false){
             countTolost++;
+            status.setStyle("-fx-text-fill: red");
             status.setText("Wrong");
             if (countTolost == 1){
                 head.setText("O");
