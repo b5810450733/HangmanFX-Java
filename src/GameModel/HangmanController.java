@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class HangmanController {
@@ -19,7 +20,7 @@ public class HangmanController {
     public String wordTouse = "";
     public String[] word = {"football","cat","dog"};
     public String[] vocab;
-    public String under ="";
+    public ArrayList<String> under = new ArrayList<>();
     public String inLetter = "";
     public int countTowin = 0;
     public int countTolost = 0;
@@ -38,9 +39,9 @@ public class HangmanController {
         System.out.println(wordTouse);
         vocab = wordTouse.split("");
         for (int i = 0; i < vocab.length ; i++) {
-            under += "_"+" ";
+            under.add("_"+"");
+ //           under += "_"+" ";
         }
-        showtext.setText(under);
         status.setText("Insert Letter");
 
     }
