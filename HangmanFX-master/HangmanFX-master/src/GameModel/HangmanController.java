@@ -24,13 +24,13 @@ public class HangmanController {
     public ArrayList<String> under = new ArrayList<>();
     public String showWord = "";
     public String inLetter = "";
-    public int countTowin = 0;
     public int countTolost = 0;
     public int ran;
     public int countH = 0;
 
     @FXML
     public void show_Name(String name){
+
         showName.setText(name);
     }
 
@@ -38,7 +38,6 @@ public class HangmanController {
         showWord = "";
         Random a = new Random();
         ran = a.nextInt(word.length);
-        System.out.println(ran);
         wordTouse = word[ran];
         System.out.println(wordTouse);
         vocab = wordTouse.split("");
@@ -54,7 +53,13 @@ public class HangmanController {
     @FXML
     public void sendButton(ActionEvent e){
         if (e.getSource().equals(enterText)){
-            hangMancalculate();
+            if (textinput.getText().length() > 1){
+                status.setStyle("-fx-text-fill: #ff2a00");
+                status.setText("Only 1 letter!");
+                textinput.clear();
+            }else {
+                hangMancalculate();
+            }
         }if (e.getSource().equals(hint)){
             Random r= new Random();
             int h1 = r.nextInt(vocab.length);
@@ -89,11 +94,10 @@ public class HangmanController {
                 showWord += under.get(i)+" ";
                 winword += under.get(i);
             }
-            countTowin++;
             showtext.setText(showWord);
-            status.setStyle("-fx-text-fill: green");
-            status.setText("Correct");
-            if (countTowin == 6 || winword.equals(wordTouse)){
+            status.setStyle("-fx-text-fill: #00cb00");
+            status.setText("Correct!");
+            if (winword.equals(wordTouse)){
                 status.setText("!!You WIN!!");
                 textinput.setDisable(true);
                 enterText.setDisable(true);
@@ -102,7 +106,7 @@ public class HangmanController {
         }if (isTrue == false){
             countTolost++;
             status.setStyle("-fx-text-fill: red");
-            status.setText("Wrong");
+            status.setText("Wrong!");
             if (countTolost == 1){
                 head.setText("O");
             }if (countTolost== 2){

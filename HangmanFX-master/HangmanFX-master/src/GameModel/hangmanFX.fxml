@@ -8,9 +8,9 @@
 
 <AnchorPane prefHeight="290.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameModel.HangmanController">
    <children>
-      <Label fx:id="showName" alignment="CENTER" contentDisplay="CENTER" layoutX="211.0" layoutY="16.0" prefHeight="32.0" prefWidth="101.0" text="Username" textAlignment="CENTER">
+      <Label fx:id="showName" alignment="CENTER" contentDisplay="CENTER" layoutX="199.0" layoutY="16.0" prefHeight="32.0" prefWidth="115.0" text="Username" textAlignment="CENTER" textFill="#008a70">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
       <Label fx:id="rope" layoutX="129.0" layoutY="5.0" prefHeight="43.0" prefWidth="26.0" text="+">
@@ -49,18 +49,21 @@
          </font>
       </Label>
       <TextField fx:id="textinput" alignment="CENTER" layoutX="90.0" layoutY="248.0" prefHeight="25.0" prefWidth="78.0" promptText="1 letter only." />
-      <Button defaultButton="true" fx:id="enterText" layoutX="179.0" layoutY="248.0" mnemonicParsing="false" onAction="#sendButton" text="send" />
+      <Button fx:id="enterText" defaultButton="true" layoutX="179.0" layoutY="248.0" mnemonicParsing="false" onAction="#sendButton" text="send" />
       <Label fx:id="showtext" alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="207.0" prefHeight="25.0" prefWidth="217.0" style="-fx-border-color: #000000;" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="status" alignment="CENTER" layoutX="223.0" layoutY="48.0" prefHeight="32.0" prefWidth="78.0" text="status" textAlignment="CENTER" />
-      <Label fx:id="hinttext" alignment="CENTER" layoutX="276.0" layoutY="207.0" prefHeight="25.0" prefWidth="26.0" style="-fx-border-color: #000000;">
+      <Label fx:id="status" alignment="CENTER" layoutX="202.0" layoutY="48.0" prefHeight="32.0" prefWidth="108.0" text="status" textAlignment="CENTER">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="hinttext" alignment="CENTER" layoutX="274.0" layoutY="207.0" prefHeight="25.0" prefWidth="26.0" style="-fx-border-color: #000000;" textFill="#005bda">
+         <font>
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="hint" layoutX="268.0" layoutY="248.0" mnemonicParsing="false" onAction="#sendButton" prefHeight="25.0" prefWidth="42.0" text="Hint" />
+      <Button fx:id="hint" layoutX="266.0" layoutY="248.0" mnemonicParsing="false" onAction="#sendButton" prefHeight="25.0" prefWidth="41.0" text="Hint" />
    </children>
 </AnchorPane>
