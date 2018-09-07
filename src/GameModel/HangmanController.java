@@ -20,7 +20,7 @@ public class HangmanController {
     public String wordTouse = "";
     public String[] word = {"football","cat","dog"};
     public String[] vocab;
-    public ArrayList<String> under = new ArrayList<>();
+    public String under = "";
     public String inLetter = "";
     public int countTowin = 0;
     public int countTolost = 0;
@@ -39,9 +39,9 @@ public class HangmanController {
         System.out.println(wordTouse);
         vocab = wordTouse.split("");
         for (int i = 0; i < vocab.length ; i++) {
-            under.add("_"+"");
- //           under += "_"+" ";
+            under += "_"+" ";
         }
+        showtext.setText(under);
         status.setText("Insert Letter");
 
     }
