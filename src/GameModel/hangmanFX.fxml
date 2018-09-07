@@ -50,7 +50,7 @@
          </font>
       </Label>
       <TextField fx:id="textinput" layoutX="96.0" layoutY="249.0" prefHeight="25.0" prefWidth="78.0" />
-      <Button fx:id="enterText" layoutX="200.0" layoutY="248.0" mnemonicParsing="false" text="send" />
+      <Button fx:id="enterText" layoutX="200.0" layoutY="248.0" mnemonicParsing="false" onAction="#sendButton" text="send" />
       <Label fx:id="showtext" alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="207.0" prefHeight="25.0" prefWidth="217.0" style="-fx-border-color: #000000;" text="Show _______" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
