@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -13,9 +14,11 @@ public class HangmanController {
     @FXML
     public Label showName,showtext,status,head,Lhand,Rhand,body,Lleg,Rleg,hinttext;
     @FXML
-    public Button enterText,hint;
+    public Button enterText,hint,restart;
     @FXML
     public TextField textinput;
+    @FXML
+    public Pane color;
 
     public String wordTouse = "";
     public String[] word = {"football","cat","dog","elephant","tree","book","telephone","java","water","candy",
@@ -27,11 +30,13 @@ public class HangmanController {
     public int countTolost = 0;
     public int ran;
     public int countH = 0;
+    public int levelstate;
+    public String winword ="";
 
     @FXML
     public void show_Name(String name){
-
         showName.setText(name);
+        restart.setDisable(true);
     }
 
     public void calWord(){
@@ -41,13 +46,33 @@ public class HangmanController {
         wordTouse = word[ran];
         System.out.println(wordTouse);
         vocab = wordTouse.split("");
+        if (vocab.length <= 3){
+            levelstate = 1;
+            setBG(levelstate);
+        }else if(vocab.length >3 && vocab.length <= 6){
+            levelstate = 2;
+            setBG(levelstate);
+        }else if (vocab.length > 6){
+            levelstate = 3;
+            setBG(levelstate);
+        }
         for (int i = 0; i < vocab.length ; i++) {
             under.add("_");
             showWord += "_"+" ";
         }
         showtext.setText(showWord);
         status.setText("Insert Letter");
+    }
 
+    @FXML
+    public void setBG(int level){ // color of level
+        if (level == 1){
+            color.setStyle("-fx-background-color: #70d400");
+        }else if (level == 2){
+            color.setStyle("-fx-background-color: #f6cd00");
+        }else if (level == 3){
+            color.setStyle("-fx-background-color: #dd0000");
+        }
     }
 
     @FXML
@@ -75,6 +100,28 @@ public class HangmanController {
                 hint.setDisable(true);
             }
 
+        }if (e.getSource().equals(restart)){
+            textinput.clear();
+            hinttext.setText("");
+            restart.setDisable(true);
+            head.setText("");
+            body.setText("");
+            Lhand.setText("");
+            Rhand.setText("");
+            Lleg.setText("");
+            Rleg.setText("");
+            textinput.setDisable(false);
+            hint.setDisable(false);
+            enterText.setDisable(false);
+            hinttext.setDisable(false);
+            wordTouse = "";
+            showWord = "";
+            winword = "";
+            under.clear();
+            countTolost = 0;
+            countH = 0;
+            calWord();
+
         }
     }
 
@@ -88,7 +135,7 @@ public class HangmanController {
             }
         }
         if (isTrue == true){
-            String winword ="";
+            winword = "";
             showWord = "";
             for (int i = 0; i < under.size() ; i++) {
                 showWord += under.get(i)+" ";
@@ -102,6 +149,7 @@ public class HangmanController {
                 textinput.setDisable(true);
                 enterText.setDisable(true);
                 hint.setDisable(true);
+                restart.setDisable(false);
             }
         }if (isTrue == false){
             countTolost++;
@@ -123,6 +171,8 @@ public class HangmanController {
                 textinput.setDisable(true);
                 enterText.setDisable(true);
                 hint.setDisable(true);
+                restart.setDisable(false);
+                hinttext.setDisable(true);
             }
         }
         textinput.clear();
