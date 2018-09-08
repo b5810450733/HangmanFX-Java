@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class HangmanController {
     @FXML
-    public Label showName,showtext,status,head,Lhand,Rhand,body,Lleg,Rleg,hinttext;
+    public Label showName,showtext,status,head,Lhand,Rhand,body,Lleg,Rleg,hinttext,winwinwin;
     @FXML
     public Button enterText,hint,restart;
     @FXML
@@ -82,7 +82,10 @@ public class HangmanController {
                 status.setStyle("-fx-text-fill: #ff2a00");
                 status.setText("Only 1 letter!");
                 textinput.clear();
-            }else {
+            }else if (textinput.getText().equals("")){
+                status.setStyle("-fx-text-fill: black");
+                status.setText("Insert Letter");
+            }else if (!textinput.getText().equals("")){
                 hangMancalculate();
             }
         }if (e.getSource().equals(hint)){
@@ -114,6 +117,7 @@ public class HangmanController {
             hint.setDisable(false);
             enterText.setDisable(false);
             hinttext.setDisable(false);
+            winwinwin.setText("");
             wordTouse = "";
             showWord = "";
             winword = "";
@@ -146,6 +150,8 @@ public class HangmanController {
             status.setText("Correct!");
             if (winword.equals(wordTouse)){
                 status.setText("!!You WIN!!");
+                winwinwin.setStyle("-fx-text-fill: #3fa45f");
+                winwinwin.setText("☺");
                 textinput.setDisable(true);
                 enterText.setDisable(true);
                 hint.setDisable(true);

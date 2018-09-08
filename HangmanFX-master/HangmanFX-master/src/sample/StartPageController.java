@@ -24,6 +24,7 @@ public class StartPageController {
         try {
             stage.setScene(new Scene(loader.load(), 320, 290));
             stage.setTitle("HangMan");
+            stage.setResizable(false);
             HangmanController controller = (HangmanController) loader.getController();
             controller.show_Name(username.getText());
             controller.calWord();
