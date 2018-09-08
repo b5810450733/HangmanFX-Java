@@ -150,7 +150,7 @@ public class HangmanController {
             status.setText("Correct!");
             if (winword.equals(wordTouse)){
                 status.setText("!!You WIN!!");
-                winwinwin.setStyle("-fx-text-fill: #3fa45f");
+                winwinwin.setStyle("-fx-text-fill: #73b284");
                 winwinwin.setText("☺");
                 textinput.setDisable(true);
                 enterText.setDisable(true);
