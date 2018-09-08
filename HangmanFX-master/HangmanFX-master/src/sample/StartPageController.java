@@ -20,11 +20,11 @@ public class StartPageController {
     public void startGame (ActionEvent e){
         start = (Button) e.getSource();
         Stage stage = (Stage) start.getScene().getWindow();
+        stage.setResizable(false);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GameModel/hangmanFX.fxml"));
         try {
             stage.setScene(new Scene(loader.load(), 320, 290));
             stage.setTitle("HangMan");
-            stage.setResizable(false);
             HangmanController controller = (HangmanController) loader.getController();
             controller.show_Name(username.getText());
             controller.calWord();
