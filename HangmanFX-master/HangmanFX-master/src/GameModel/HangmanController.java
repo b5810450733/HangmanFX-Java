@@ -90,19 +90,23 @@ public class HangmanController {
             }
         }if (e.getSource().equals(hint)){
             Random r= new Random();
-            int h1 = r.nextInt(vocab.length);
-            int h2 = r.nextInt(vocab.length);
-            if (countH == 0){
-                hinttext.setText(vocab[h1]);
+            while (countH < 2){
+                ArrayList<String> hintWords = new ArrayList<>();
+                for (String v : vocab){
+                    if (!showWord.contains(v)){
+                        hintWords.add(v);
+                    }
+                }
+                int index = r.nextInt(hintWords.size());
+                hinttext.setText(hintWords.get(index));
                 countH++;
                 System.out.println(countH);
-            }else if(countH == 1){
-                hinttext.setText(vocab[h2]);
-                countH++;
-                hinttext.setDisable(true);
-                hint.setDisable(true);
+                if (countH == 2){
+                    hinttext.setDisable(true);
+                    hint.setDisable(true);
+                }
+                break;
             }
-
         }if (e.getSource().equals(restart)){
             textinput.clear();
             hinttext.setText("");
